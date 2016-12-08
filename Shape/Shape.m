@@ -67,8 +67,10 @@ ShapeIndex[k1_,k2_]:=(2/Pi)ArcTan[k2-k1,k1+k2]/;k1<k2
 Curvedness[k1_,k2_]:=Sqrt[(k1^2+k2^2)/2]
 
 (* our variants *)
+MichelsonContrast[k1_,k2_]:=0/;(k1+k2)==0
 MichelsonContrast[k1_,k2_]:=(k1-k2)/(k1+k2)/;k1>=k2
 MichelsonContrast[k1_,k2_]:=(k2-k1)/(k1+k2)/;k1<k2
+
 CurvatureContrast[k1_,k2_]:=Abs[Abs[k1]-Abs[k2]]
 NormalizedCurvatureContrast[k1_,k2_]:=Abs[(Abs[k1]-Abs[k2])/(Abs[k1]+Abs[k2])]
 TotalCurvature[k1_,k2_]:=Abs[k1]+Abs[k2]
