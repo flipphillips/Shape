@@ -1,0 +1,86 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2327,         76]
+NotebookOptionsPosition[      1997,         60]
+NotebookOutlinePosition[      2355,         76]
+CellTagsIndexPosition[      2312,         73]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"<<", "Shape`"}]], "Input",
+ CellChangeTimes->{{3.690153555433776*^9, 3.690153575772274*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"functions", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "MeanCurvature", ",", "GaussianCurvature", ",", "ShapeIndex", ",", 
+     "Curvedness", ",", "\[IndentingNewLine]", "MichelsonContrast", ",", 
+     "CurvatureContrast", ",", "NormalizedCurvatureContrast", ",", 
+     "TotalCurvature", ",", "\[IndentingNewLine]", "MaximumCurvature", ",", 
+     "MaximumSignedCurvature"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6901535804535933`*^9, 3.69015364406013*^9}, {
+  3.690154389097583*^9, 3.6901543898516703`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{"Partition", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Plot3D", "[", 
+       RowBox[{
+        RowBox[{"#", "[", 
+         RowBox[{"k1", ",", "k2"}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"k1", ",", 
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"k2", ",", 
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+        RowBox[{"PlotLabel", "\[Rule]", 
+         RowBox[{"ToString", "[", "#", "]"}]}]}], "]"}], "&"}], "/@", 
+     "functions"}], ",", 
+    RowBox[{"UpTo", "[", "3", "]"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.69015365970091*^9, 3.6901537907146997`*^9}, {
+  3.690153828177927*^9, 3.690153832481944*^9}}]
+},
+WindowSize->{808, 901},
+WindowMargins->{{436, Automatic}, {Automatic, 50}},
+FrontEndVersion->"11.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 1, \
+2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 116, 2, 39, "Input"],
+Cell[677, 24, 550, 11, 118, "Input"],
+Cell[1230, 37, 763, 21, 118, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
