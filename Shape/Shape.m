@@ -77,7 +77,6 @@ TotalCurvature[k1_,k2_]:=Abs[k1]+Abs[k2]
 MaximumCurvature[k1_,k2_]:=Max[{Abs[k1],Abs[k2]}]
 MaximumSignedCurvature[k1_,k2_]:=If[Abs[k1]>Abs[k2],k1,k2]
 
-
 (* visualization / classification *)
 koenderKolor={
 		{-1.0,RGBColor[0.0,1.0,0.0]},
@@ -91,10 +90,7 @@ koenderKolor={
 		{1.0,RGBColor[1.0,0.0,0.0]}
 };
 
-
 ShapeIndexColor[si_]:=Blend[koenderKolor,si]
-
-
 ShapeIndexCategory[si_] := 
 		Which[
 			si < -1, 0,
