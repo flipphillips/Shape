@@ -12,23 +12,22 @@
 (* :Discussion: *)
 
 BeginPackage["Structure`"]
-(* Exported symbols added here with SymbolName::usage *)  
+  
 VertexFrame::usage="VertexFrame[v,n,neighborhood] calculates the vertex frame for vertex v with normal n and neighbors."
 OBJStructure::usage="OBJStructure[filename] calculates the differential structure of the OBJ file. This file should have vertex normals."
  
-Begin["`Private`"] (* Begin Private Context *) 
+Begin["`Private`"]
 
-(*
- * returns p,n,pd1,pd2,k1,k2
- *)
+(* returns p,n,pd1,pd2,k1,k2 *)
 
 VertexFrame[v_,n_,hood_]:=Module[{nhood,xhood,m,a,b,c,ks,pd,pds,pd1,pd2},
 	(* degenerate cases *)
 	If[Chop[Norm[n],10^-8]==0||Chop[Norm[n-{0.,0.,-1.}],10^-8]==0,
-		Return[{{0.,0.},{{0.,0.,0.},{0.,0.,0.}}}]];
+		Return[{v,n,{0.,0.,0.},{0.,0.,0.},{0.,0.}}]];
 
 	(* localize points *)
 	nhood=#-v&/@hood;
+	
 	(* rotate so normal is z+ *)
 	xhood=If[Chop[n]!={0,0,1.},
 		RotationTransform[{n,{0.,0.,1.}}]/@nhood,
@@ -47,8 +46,7 @@ VertexFrame[v_,n_,hood_]:=Module[{nhood,xhood,m,a,b,c,ks,pd,pds,pd1,pd2},
 		pd];
 
 	(* sort them from min,max *)
-	{{pd1,pd2},ks}=If[LessEqual@@ks,
-		{pds,ks},Reverse/@{pds,ks}];
+	{{pd1,pd2},ks}=If[LessEqual@@ks,{pds,ks},Reverse/@{pds,ks}];
 
 	{v,n,pd1,pd2,ks}
 ]
