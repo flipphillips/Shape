@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    821763,      13417]
-NotebookOptionsPosition[    821353,      13398]
-NotebookOutlinePosition[    821712,      13414]
-CellTagsIndexPosition[    821669,      13411]
+NotebookDataLength[    829282,      13644]
+NotebookOptionsPosition[    828471,      13612]
+NotebookOutlinePosition[    828830,      13628]
+CellTagsIndexPosition[    828787,      13625]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -13394,10 +13394,224 @@ G/Fq4dryXsQj7gOHdvC6oqwcbXgovXz7y9W4vuMw4tXCJb9LeF3zRsSrhYeK
   PlotRangePadding->{6, 5}]], "Output",
  CellChangeTimes->{{3.6902053844228888`*^9, 3.6902053913002996`*^9}, 
    3.690205502611961*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Shape`*"}]], "Input",
+ CellChangeTimes->{{3.690320789248536*^9, 3.690320794687748*^9}}],
+
+Cell[BoxData[
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["Shape`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["Shape`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["CurvatureContrast",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"CurvatureContrast", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["MaximumSignedCurvature",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"MaximumSignedCurvature", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["ShapeIndex",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info123690302795-5017696", {"ShapeIndex", "Shape`"}},
+          ButtonNote->"Shape`"]},
+        {
+         ButtonBox["Curvedness",
+          BaseStyle->"InformationLink",
+          ButtonData:>{"Info123690302795-5017696", {"Curvedness", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["MeanCurvature",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"MeanCurvature", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["ShapeIndexCategory",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"ShapeIndexCategory", "Shape`"}},
+          ButtonNote->"Shape`"]},
+        {
+         ButtonBox["GaussianCurvature",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"GaussianCurvature", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["MeanCurvatureFromGradients",
+          BaseStyle->"InformationLink",
+          ButtonData:>{
+           "Info123690302795-5017696", {
+            "MeanCurvatureFromGradients", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["ShapeIndexColor",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"ShapeIndexColor", "Shape`"}},
+          ButtonNote->"Shape`"]},
+        {
+         ButtonBox["GaussianCurvatureFromGradients",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {
+            "GaussianCurvatureFromGradients", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["MichelsonContrast",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"MichelsonContrast", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["ToPrincipalCurvatures",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"ToPrincipalCurvatures", "Shape`"}},
+          ButtonNote->"Shape`"]},
+        {
+         ButtonBox["MaximumCurvature",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"MaximumCurvature", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["NormalizedCurvatureContrast",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {
+            "NormalizedCurvatureContrast", "Shape`"}},
+          ButtonNote->"Shape`"], 
+         ButtonBox["TotalCurvature",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690302795-5017696", {"TotalCurvature", "Shape`"}},
+          ButtonNote->"Shape`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.31666666666666665`]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]], "Print", "InfoCell",
+ CellChangeTimes->{3.69032079553876*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Structure`*"}]], "Input",
+ CellChangeTimes->{{3.690320826051002*^9, 3.69032083244447*^9}}],
+
+Cell[BoxData[
+ DynamicModuleBox[{Typeset`open$$ = True}, 
+  PaneSelectorBox[{False->
+   RowBox[{
+    OpenerBox[Dynamic[Typeset`open$$],
+     ImageSize->Small], 
+    StyleBox["Structure`", "InfoHeading"]}], True->GridBox[{
+     {
+      RowBox[{
+       OpenerBox[Dynamic[Typeset`open$$],
+        ImageSize->Small], 
+       StyleBox["Structure`", "InfoHeading"]}]},
+     {GridBox[{
+        {
+         ButtonBox["OBJStructure",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690303831-4210406", {"OBJStructure", "Structure`"}},
+          ButtonNote->"Structure`"], 
+         ButtonBox["VertexFrame",
+          BaseStyle->"InformationLink",
+          
+          ButtonData:>{
+           "Info123690303831-4210406", {"VertexFrame", "Structure`"}},
+          ButtonNote->"Structure`"]}
+       },
+       DefaultBaseStyle->"InfoGrid",
+       GridBoxItemSize->{"Columns" -> {{
+            Scaled[0.475]}}}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}]}, 
+   Dynamic[Typeset`open$$],
+   ImageSize->Automatic]]], "Print", "InfoCell",
+ CellChangeTimes->{3.690321831964129*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"s", "=", 
+   RowBox[{
+   "OBJStructure", "[", 
+    "\"\</Users/flip/Dropbox (Batata Wala)/Batata Wala Team Folder/Model/The \
+Fifteen/0072.obj\>\"", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6903203779726257`*^9, 3.690320380510931*^9}, {
+   3.690320446041485*^9, 3.690320448440571*^9}, {3.6903208210946198`*^9, 
+   3.6903208412459707`*^9}, 3.6903211388706427`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"s", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6903218575079737`*^9, 3.690321858233589*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "4.695697784423828`", ",", "141.22369384765625`", ",", "32.80859375`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.9945328399545871`"}], ",", 
+     RowBox[{"-", "0.008874260662076463`"}], ",", "0.10404651723899762`"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.10409833476901262`"}], ",", "0.16291784254441505`", ",", 
+     
+     RowBox[{"-", "0.9811326685413102`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.00824420706812354`"}], ",", 
+     RowBox[{"-", "0.9865997283997064`"}], ",", 
+     RowBox[{"-", "0.16295094038219976`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1.2828531696689836`"}], ",", 
+     RowBox[{"-", "0.004953799929060077`"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.690321858587182*^9, 3.6903222311187677`*^9, 
+  3.690322319613055*^9, 3.6903224082780647`*^9}]
 }, Open  ]]
 },
-WindowSize->{1459, 1314},
-WindowMargins->{{Automatic, 178}, {Automatic, 0}},
+WindowSize->{1088, 723},
+WindowMargins->{{169, Automatic}, {Automatic, 14}},
 FrontEndVersion->"11.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 1, \
 2016)",
 StyleDefinitions->"Default.nb"
@@ -13416,8 +13630,21 @@ Notebook[{
 Cell[558, 20, 116, 2, 39, "Input"],
 Cell[677, 24, 550, 11, 92, "Input"],
 Cell[CellGroupData[{
-Cell[1252, 39, 1489, 37, 118, "Input"],
+Cell[1252, 39, 1489, 37, 144, "Input"],
 Cell[2744, 78, 818593, 13317, 969, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[821374, 13400, 116, 2, 39, "Input"],
+Cell[821493, 13404, 4100, 114, 171, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[825630, 13523, 119, 2, 39, "Input"],
+Cell[825752, 13527, 1144, 34, 63, "Print"]
+}, Open  ]],
+Cell[826911, 13564, 405, 9, 92, "Input"],
+Cell[CellGroupData[{
+Cell[827341, 13577, 145, 3, 39, "Input"],
+Cell[827489, 13582, 966, 27, 66, "Output"]
 }, Open  ]]
 }
 ]
