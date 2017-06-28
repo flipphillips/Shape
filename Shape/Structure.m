@@ -51,27 +51,44 @@ VertexFrame[v_,n_,hood_]:=Module[{nhood,xhood,m,a,b,c,ks,pd,pds,pd1,pd2},
 	{v,n,pd1,pd2,ks}
 ]
 
-neighborFest[i_,raf_,ri_]:=Select[Union[Flatten[Nest[raf, i, ri]]], # != i &]
+mVertexVertexConnectivity[f_]:=Module[{connectivity,vs},
+	connectivity = Import[f, "PolygonData"];
+	vs = Union[Flatten[connectivity]];
+
+	Function[index,
+		Cases[DeleteDuplicates[Flatten[Select[connectivity, MemberQ[#, index] &]]],Except[index]]] /@ vs
+]
+
+mVertexVertexConnectivityRules[f_]:=Module[{connectivity,vs},
+	connectivity = Import[f, "PolygonData"];
+	vs = Union[Flatten[connectivity]];
+
+	Function[index,index -> 
+		Cases[DeleteDuplicates[Flatten[Select[connectivity, MemberQ[#, index] &]]],Except[index]]] /@ vs
+]
+	
+mVertexCoordinateRules[f_]:=Module[{ps},
+		ps = Import[f,"VertexData"];
+		MapThread[Rule,{Range[Length[ps]],ps}]
+]
+
+neighborFest[i_,raf_,ri_]:=Select[DeleteDuplicates[Flatten[Nest[raf, i, ri]]], # != i &]
 
 (*raf = ReplaceAll[Dispatch[mo["VertexVertexConnectivityRules"]]];*)
   
 
 
 OBJStructure[f_] := 
- Module[{o,ns,mo,ps,vcr,vvc,hoods},
-  o = Import[f,"MeshRegion"];
-  ns = Normalize/@Import[f,"VertexNormals"];
+	Module[{ns,vcr,vvcr,hoods},
+		vcr = mVertexCoordinateRules[f];
+		vvcr = mVertexVertexConnectivityRules[f];
+		ns = Normalize/@Import[f,"VertexNormals"];
+
+		(* onering right now *)
+  		hoods =  vvcr[[All,2]] /. Dispatch[vcr];
   
-  mo = Graphics`Region`ToMeshObject[o];
-  
-  ps = mo["VertexCoordinates"];
-  vcr = Dispatch[mo["VertexCoordinateRules"]];
-  vvc = mo["VertexVertexConnectivity"];
-  
-  hoods = vvc /. vcr;
-  
-  MapThread[VertexFrame, {ps, ns, hoods}]
-]
+		MapThread[VertexFrame, {vcr[[All,2]], ns, hoods}]
+	]
   		
 End[] (* End Private Context *)
 

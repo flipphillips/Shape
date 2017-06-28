@@ -5,12 +5,12 @@
 (* :Summary: 
 	This package provides various curvature-related function to Mathematica.
 *)
-(* :Package Version: $Revision: 31 $ *)
+(* :Package Version: $Revision: 32 $ *)
 (* :Mathematica Version: 10.0+ *)
 (* :Copyright: Copyright 1999-2016, Flip Phillips, All Rights Reserved.  *)
 (* :History: May14  added new contrast metric
 			 Feb15 added visualization
-			Apr16 added conditional versions of shape index, derived K, H, etc  *)
+			 Apr16 added conditional versions of shape index, derived K, H, etc  *)
 (* :Keywords: *)
 (* :Limitations: *)
 (* :Discussion: *)
@@ -18,7 +18,7 @@
 BeginPackage["Shape`"]
 
 (* compute curvatures from mean/gaussian cvt *)
-ToPrincipalCurvatures::usage="ToPrincipalCurvatures[H,K] gives k1 and k2 from mean and Gaussian curvatures. k1 <= k2"
+ToPrincipalCurvatures::usage="ToPrincipalCurvatures[H,K] gives kappa1 and kappa2 from mean and Gaussian curvatures. k1 <= k2"
 
 (* derivative based*)
 MeanCurvatureFromGradients::usage="MeanCurvatureFromGradients[dx,dy,dxx,dyy,dxy] gives H from 1st and 2nd derivates."
