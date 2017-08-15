@@ -1,8 +1,4 @@
 # Change Log
-Flip's dot files.
-
-![](icon.png)
-
 <!--
 ## Guiding Principles
 
@@ -24,30 +20,12 @@ Flip's dot files.
 - `Security` in case of vulnerabilities. 
 -->
 
-## [33.3.0] - 2017-08-01
+## [2.0.0] - 2017-08-15
 ### Added
-- scripts folder
 - this `CHANGELOG.md`
+- version system
 
 ### Changed
-- `setup.sh` to install scripts to `/usr/local`
+- refactored from Workbench
 
-### Deprecated
-- `my.startup.plist`
-- `bashrc_ubuntu.sh`
-
-## [33.2.0] - 2017-08-01
-
-## Added
-- versioning system
-- build-updater hooks
-- **Note** this requires the addition of jq the `json` query system via `brew`
-- added hooks for pre-commit and push to the `.git/hooks` here locally
-
-## Changed
-- Various `bashrc` aliases, etc.
-
-## [33.0.0] - 2017-01-01
-
-### Added
-- everything from 1984 on.
+## [1.0.0] - 2017-08-01
