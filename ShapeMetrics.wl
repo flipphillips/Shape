@@ -15,7 +15,9 @@
 (* :Limitations: *)
 (* :Discussion: *)
 
-BeginPackage["Shape`"]
+BeginPackage["Shape`ShapeMetrics`"]
+
+ShapeMetrics::usage="ShapeMetrics is a package containing a few curvature related functions to mathematica"
 
 (* compute curvatures from mean/gaussian cvt *)
 ToPrincipalCurvatures::usage="ToPrincipalCurvatures[H,K] gives kappa1 and kappa2 from mean and Gaussian curvatures. k1 <= k2"

@@ -4,7 +4,7 @@
 
 Paclet[
     Name -> "Shape",
-    Version -> "1.0.1",
+    Version -> "2.0.1",
     MathematicaVersion -> "6+",
     Description -> "Tools for shape analysis",
     Creator -> "Flip Phillips",

@@ -1,4 +1,5 @@
 # Change Log
+
 Flip's dot files.
 
 ![](icon.png)
@@ -24,15 +25,32 @@ Flip's dot files.
 - `Security` in case of vulnerabilities. 
 -->
 
+## [Unreleased Changes]
+
+### Added
+
+- Metrics, Patches, Region, DepthMap
+- Attic for 2D stuff
+
+### Changed
+
+- version in paclet and json
+
+### Removed
+
+- Eclipse project file
+- gitignore for `doc.xml`
+- Documentation
+
 ## [2.0.0] - 2017-08-15
 
 ### Changed
+
 - migrated from Workbench
 
-### Todo
-- better tests
 
 ## [1.0.0] - 2017-01-01
 
 ### Added
+
 - everything from 1984 on.
