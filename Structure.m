@@ -1,4 +1,5 @@
 (* ::Package:: *)
+
 (* :Title: Shape Metric Tools *)
 (* :Context: Structure` *)
 (* :Author: Flip Phillips *)
