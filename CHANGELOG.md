@@ -20,6 +20,11 @@
 - `Security` in case of vulnerabilities. 
 -->
 
+## [Development]
+### Deprecated
+    - Time to migrate out the Workbench stuff?
+    - Add to / change the documentation
+    
 ## [2.0.0] - 2017-08-15
 ### Added
 - this `CHANGELOG.md`
