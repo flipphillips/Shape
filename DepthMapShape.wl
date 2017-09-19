@@ -6,26 +6,43 @@ BeginPackage["Shape`DepthMapShape`"]
 (* Exported symbols added here with SymbolName::usage *) 
 
 
+imagePartials::usage = 
+  "imagePartials[img,sigma] returns {dix,diy,dixx,diyy,dixy}";
+
+structureTensor::usage = "structureTensor[img,sigma] computes 
+	an image containing the structure tensor with {J11,J22,J12} in {R,G,B}";
+orientationMap::usage = "orientationMap[img,sigma] returns an orientation map";
+
 ridgeMap::usage = "ridgeMap[img,sigma] computes a ridge filter on img";
 tJunctionMap::usage = 
   "tJunctionMap[img,sigma] computes a t-junction filter on img";
+
 vectorFieldMap::usage = 
   "vectorFieldMap[img,sigma] computes vector flow field on img.";
-imagePartials::usage = 
-  "imagePartials[img,sigma] returns {dix,diy,dixx,diyy,dixy}";
+  
 normalMap::usage = 
   "normalMap[img,sigma] gives an RGB normal map from img.";
+
 flowMap::usage = 
   "flowMap[img,sigma] gives a flow direction map from img.";
 formsMap::usage = 
   "formsMap[img,sigma] returns {e,f,g,E,F,G} map from img.";
+
 curvaturesMap::usage = 
   "curvaturesMap[img,sigma] returns kmin,kmax from image.";
+
 mapToImage::usage = 
   "mapToImage[map,mask] turns a map into an image with optional mask";
 
 
 Begin["`Private`"]
+
+
+(* private functions, safearctan *)
+
+
+sarcTan[x_,y_]:=0.0/;x==0.0
+sarcTan[x_,y_]:=ArcTan[x,y]
 
 
 (* Implementation of the package *)
@@ -73,6 +90,26 @@ imagePartials[img_,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy},
 imagePartials[img_Image,s_:1]:=Image[imagePartials[ImageData[img],s]]
 
 
+structureTensor[img_,s_:1]:=Module[{dix,diy,j11,j22,j12},
+	dix=DerivativeFilter[img,{1,0}];
+	diy=DerivativeFilter[img,{0,1}];
+	j11=dix*dix;
+	j22=diy*diy;
+	j12=diy*dix;
+	{j11,j22,j12}]
+
+
+structureTensor[img_Image,s_:1]:=ColorCombine[structureTensor[ImageData[img],s]]
+
+
+orientationMap[img_,s_:1]:=Module[{j11,j22,j12},
+	{j11,j22,j12} = structureTensor[img,s];
+	ArcTan[j22-j11, 2 j12]/2.0]
+
+
+orientationMap[img_Image,s_:1]:=Image[orientationMap[ImageData[img],3]]
+
+
 normalMap[img_,\[Sigma]_:1]:=Module[{dix,diy},
 	dix=DerivativeFilter[img,{1,0},\[Sigma]];
 	diy=DerivativeFilter[img,{0,1},\[Sigma]];
@@ -80,10 +117,6 @@ normalMap[img_,\[Sigma]_:1]:=Module[{dix,diy},
 
 
 normalMap[img_Image,\[Sigma]_:1]:=Image[normalMap[ImageData[img],\[Sigma]]]
-
-
-sarcTan[x_,y_]:=0.0/;x==0.0
-sarcTan[x_,y_]:=ArcTan[x,y]
 
 
 flowMap[img_,\[Sigma]_:1]:=Module[{dix,diy},
