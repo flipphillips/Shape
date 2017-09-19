@@ -1,6 +1,6 @@
 # Change Log
 
-Flip's dot files.
+The Skidmore Shape Package
 
 ![](icon.png)
 
