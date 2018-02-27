@@ -31,6 +31,11 @@ The Skidmore Shape Package
 
 - Metrics, Patches, Region, DepthMap
 - Attic for 2D stuff
+- Documentation in Readme
+- functions to init.wl
+- LFS support
+- .vscode directory
+- Development directory with remnants + Fillip stuff
 
 ### Changed
 
