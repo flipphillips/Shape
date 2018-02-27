@@ -20,7 +20,14 @@ Right now, `Shape` is broken into five sub-modules:
 
 ### DepthMap
 
-Contains routines for calculating depth-map based shape using structure tensor shenanigans. 
+Contains routines for calculating depth-map based shape using structure tensor shenanigans. All ```sigma``` default to 1.0 pixels.
+
+
+```imagePartials[img,sigma]``` returns `{dix,diy,dixx,diyy,dixy}` using a filter size of sigma.
+
+```structureTensor[img,sigma]``` computes an image containing the structure tensor with ```{J11,J22,J12}``` in ```{R,G,B}```
+
+```orientationMap[img,sigma]``` returns an ```xyz``` orientation map in ```{R,G,B}```.
 
 ```ridgeMap[img,sigma]``` computes a ridge filter on img using a filter size of sigma.
 
@@ -36,7 +43,7 @@ Contains routines for calculating depth-map based shape using structure tensor s
 
 ```formsMap[img,sigma]``` returns ```{e,f,g,E,F,G}``` map from img using filter size sigma.
 
-```curvaturesMap[img,sigma]```returns a 2-channel kmin,kmax map from img using filter size sigma.
+```curvaturesMap[img,sigma]```returns a 2-channel kmin, kmax map from img using filter size sigma.
 
 ```mapToImage[map,mask]``` turns a map into an image with optional mask.
 

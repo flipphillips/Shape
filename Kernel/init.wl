@@ -4,14 +4,22 @@ EndPackage[]
 
 (* these need fix'n *)
 DeclarePackage["Shape`DepthMapShape`", {
+    "imagePartials",
+    "structureTensor",
+    "orientationMap",
+
     "ridgeMap",
     "tJunctionMap",
+    
     "vectorFieldMap",
     "imagePartials",
     "normalMap",
+    
     "flowMap",
+    
     "formsMap",
     "curvaturesMap",
+    
     "mapToImage"
 }]
 
