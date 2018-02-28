@@ -2,62 +2,11 @@
 BeginPackage["Shape`"]
 EndPackage[]
 
-(* these need fix'n *)
-DeclarePackage["Shape`DepthMapShape`", {
-    "imagePartials",
-    "structureTensor",
-    "orientationMap",
-
-    "ridgeMap",
-    "tJunctionMap",
-    
-    "vectorFieldMap",
-    "imagePartials",
-    "normalMap",
-    
-    "flowMap",
-    
-    "formsMap",
-    "curvaturesMap",
-    
-    "mapToImage"
-}]
-
-DeclarePackage["Shape`RegionShape`", {
-    "Bleh"
-}]
-
-DeclarePackage["Shape`ShapeMetrics`", {
-    "ToPrincipalCurvatures",
-    "MeanCurvatureFromGradients",
-    "GaussianCurvatureFromGradients",
-
-    "GaussianCurvature",
-    "MeanCurvature",
-
-    "ShapeIndex",
-    "Curvedness",
-
-    "CurvatureContrast",
-    "MichelsonContrast",
-    "NormalizedCurvatureContrast",
-    "TotalCurvature",
-    "MaximumCurvature",
-    "MaximumSignedCurvature",
-
-    "ShapeIndexColor",
-    "ShapeIndexCategory"
-}]
-
-DeclarePackage["Shape`ShapePatches`", {
-    "curvaturesPatch",
-    "shapeCurvednessPatch",
-    "meanGaussPatch"
-}]
-
-DeclarePackage["Shape`Structure`", {
-    "VertexFrame",
-    "OBJStructure"
-}]
+(* these *)
+Needs["Shape`DepthMapShape`"];
+Needs["Shape`RegionShape`"];
+Needs["Shape`ShapeMetrics`"];
+Needs["Shape`ShapePatches`"];
+Needs["Shape`Structure`"];
 
 Null

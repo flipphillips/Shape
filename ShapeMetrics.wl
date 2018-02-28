@@ -18,6 +18,7 @@
 
 BeginPackage["Shape`ShapeMetrics`"]
 
+
 ShapeMetrics::usage="ShapeMetrics is a package containing a few curvature related functions to mathematica"
 
 (* compute curvatures from mean/gaussian cvt *)
@@ -46,6 +47,7 @@ MaximumSignedCurvature::usage="MaximumSignedCurvature[k1,k2] Absolute maximum cu
 (* utility *)
 ShapeIndexColor::usage="ShapeIndexColor[si] Color coding on [-1,1] ala Koenderink. Green to red.";
 ShapeIndexCategory::usage="ShapeIndexCategory[si] Category coding on [-1,1] ala Koenderink. 1-9.";
+
 
 Begin["`Private`"] (* Begin Private Context *) 
 
@@ -99,6 +101,7 @@ MaximumCurvature[{k1_,k2_}]:=MaximumCurvature[k1,k2]
 MaximumSignedCurvature[k1_,k2_]:=If[Abs[k1]>Abs[k2],k1,k2]
 MaximumSignedCurvature[{k1_,k2_}]:=MaximumSignedCurvature[k1,k2]
 
+
 (* visualization / classification *)
 koenderKolor={
 		{-1.0,RGBColor[0.0,1.0,0.0]},
@@ -128,9 +131,6 @@ ShapeIndexCategory[si_] :=
 			True, 0
 		]
 
+
 End[] (* End Private Context *)
-
 EndPackage[]
-
-
-

@@ -32,7 +32,6 @@ The Skidmore Shape Package
 - Metrics, Patches, Region, DepthMap
 - Attic for 2D stuff
 - Documentation in Readme
-- functions to init.wl
 - LFS support
 - .vscode directory
 - Development directory with remnants + Fillip stuff
@@ -40,12 +39,18 @@ The Skidmore Shape Package
 ### Changed
 
 - version in paclet and json
+- init.wl - now dows loads witn `Needs` so it doesn't break parallel stuff.
+- added `f[{k1,k2}]` wrappers for `f[k1,k2]` scenarios. I *thought* there was a way to do this with options.
 
 ### Removed
 
 - Eclipse project file
 - gitignore for `doc.xml`
 - Documentation
+
+### Fixed
+
+- NormalizedContrast checks the parameters for 0-divide
 
 ## [2.0.0] - 2017-08-15
 
