@@ -1,4 +1,5 @@
 (* ::Package:: *)
+
 (* :Title: Shape Metric Tools *)
 (* :Context: Shape` *)
 (* :Author: Flip Phillips *)
@@ -15,7 +16,10 @@
 (* :Limitations: *)
 (* :Discussion: *)
 
-BeginPackage["Shape`"]
+BeginPackage["Shape`ShapeMetrics`"]
+
+
+ShapeMetrics::usage="ShapeMetrics is a package containing a few curvature related functions to mathematica"
 
 (* compute curvatures from mean/gaussian cvt *)
 ToPrincipalCurvatures::usage="ToPrincipalCurvatures[H,K] gives kappa1 and kappa2 from mean and Gaussian curvatures. k1 <= k2"
@@ -44,12 +48,15 @@ MaximumSignedCurvature::usage="MaximumSignedCurvature[k1,k2] Absolute maximum cu
 ShapeIndexColor::usage="ShapeIndexColor[si] Color coding on [-1,1] ala Koenderink. Green to red.";
 ShapeIndexCategory::usage="ShapeIndexCategory[si] Category coding on [-1,1] ala Koenderink. 1-9.";
 
+
 Begin["`Private`"] (* Begin Private Context *) 
 
 (* PC from H and K *)
 ToPrincipalCurvatures[h_,k_]:=
 	Module[{a=Clip[Sqrt[h^2-k],{0.0,Infinity}]},
 	{h-a,h+a}]
+	
+ToPrincipalCurvatures[{h_,k_}]:=ToPrincipalCurvatures[h,k]
 
 (* from 1st and 2nd derivatives *)
 MeanCurvatureFromGradients[dx_,dy_,dxx_,dyy_,dxy_]:=(dxx(1+dy^2)+dyy(1+dx^2)-2 dx dy dxy)/(1+dx^2+dy^2)^(3/2)
@@ -57,25 +64,43 @@ GaussianCurvatureFromGradients[dx_,dy_,dxx_,dyy_,dxy_]:=(dxx dyy -dxy^2)/(1+dx^2
 
 (* the traditional *)
 GaussianCurvature[k1_,k2_]:=k1*k2
+GaussianCurvature[{k1_,k2_}]:=GaussianCurvature[k1,k2]
+
 MeanCurvature[k1_,k2_]:=(k1+k2)/2
+MeanCurvature[{k1_,k2_}]:=MeanCurvature[k1,k2]
 
 (* koenderink *)
 ShapeIndex[k1_,k2_]:=0.0/;k1==k2
 ShapeIndex[k1_,k2_]:=(2/Pi)ArcTan[k1-k2,k1+k2]/;k1>=k2
 ShapeIndex[k1_,k2_]:=(2/Pi)ArcTan[k2-k1,k1+k2]/;k1<k2
+ShapeIndex[{k1_,k2_}]:=ShapeIndex[k1,k2]
 
 Curvedness[k1_,k2_]:=Sqrt[(k1^2+k2^2)/2]
+Curvedness[{k1_,k2_}]:=Curvedness[k1,k2]
 
 (* our variants *)
 MichelsonContrast[k1_,k2_]:=0/;(k1+k2)==0
 MichelsonContrast[k1_,k2_]:=(k1-k2)/(k1+k2)/;k1>=k2
 MichelsonContrast[k1_,k2_]:=(k2-k1)/(k1+k2)/;k1<k2
+MichelsonContrast[{k1_,k2_}]:=MichelsonContrast[k1,k2]
 
 CurvatureContrast[k1_,k2_]:=Abs[Abs[k1]-Abs[k2]]
-NormalizedCurvatureContrast[k1_,k2_]:=Abs[(Abs[k1]-Abs[k2])/(Abs[k1]+Abs[k2])]
+CurvatureContrast[{k1_,k2_}]:=CurvatureContrast[k1,k2]
+
+NormalizedCurvatureContrast[k1_,k2_]:=0/;(Abs[k1]+Abs[k2])==0
+NormalizedCurvatureContrast[k1_,k2_]:=Abs[(Abs[k1]-Abs[k2])/(Abs[k1]+Abs[k2])]/;k1>=k2
+NormalizedCurvatureContrast[k1_,k2_]:=Abs[(Abs[k2]-Abs[k1])/(Abs[k1]+Abs[k2])]/;k1<k2
+NormalizedCurvatureContrast[{k1_,k2_}]:=NormalizedCurvatureContrast[k1,k2]
+
 TotalCurvature[k1_,k2_]:=Abs[k1]+Abs[k2]
+TotalCurvature[{k1_,k2_}]:=TotalCurvature[k1,k2]
+
 MaximumCurvature[k1_,k2_]:=Max[{Abs[k1],Abs[k2]}]
+MaximumCurvature[{k1_,k2_}]:=MaximumCurvature[k1,k2]
+
 MaximumSignedCurvature[k1_,k2_]:=If[Abs[k1]>Abs[k2],k1,k2]
+MaximumSignedCurvature[{k1_,k2_}]:=MaximumSignedCurvature[k1,k2]
+
 
 (* visualization / classification *)
 koenderKolor={
@@ -106,6 +131,6 @@ ShapeIndexCategory[si_] :=
 			True, 0
 		]
 
-End[] (* End Private Context *)
 
+End[] (* End Private Context *)
 EndPackage[]

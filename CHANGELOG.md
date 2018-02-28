@@ -1,4 +1,9 @@
 # Change Log
+
+The Skidmore Shape Package
+
+![](icon.png)
+
 <!--
 ## Guiding Principles
 
@@ -20,17 +25,45 @@
 - `Security` in case of vulnerabilities. 
 -->
 
-## [Development]
-### Deprecated
-    - Time to migrate out the Workbench stuff?
-    - Add to / change the documentation
-    
+## [Unreleased Changes]
+
+### Added
+
+- Metrics, Patches, Region, DepthMap
+- Attic for 2D stuff
+- Documentation in Readme
+- LFS support
+- .vscode directory
+- Development directory with remnants + Fillip stuff
+
+### Changed
+
+- version in paclet and json
+- init.wl - now dows loads witn `Needs` so it doesn't break parallel stuff.
+- added `f[{k1,k2}]` wrappers for `f[k1,k2]` scenarios. I *thought* there was a way to do this with options.
+
+### Removed
+
+- Eclipse project file
+- gitignore for `doc.xml`
+- Documentation
+
+### Fixed
+
+- NormalizedContrast checks the parameters for 0-divide
+
 ## [2.0.0] - 2017-08-15
 ### Added
 - this `CHANGELOG.md`
 - version system
 
 ### Changed
-- refactored from Workbench
 
-## [1.0.0] - 2017-08-01
+- migrated from Workbench
+
+
+## [1.0.0] - 2017-01-01
+
+### Added
+
+- everything from 1984 on.

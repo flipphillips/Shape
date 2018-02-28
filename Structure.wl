@@ -12,7 +12,7 @@
 (* :Limitations: *)
 (* :Discussion: *)
 
-BeginPackage["Structure`"]
+BeginPackage["Shape`Structure`"]
   
 VertexFrame::usage="VertexFrame[v,n,neighborhood] calculates the vertex frame for vertex v with normal n and neighbors."
 OBJStructure::usage="OBJStructure[filename] calculates the differential structure of the OBJ file. This file should have vertex normals."
