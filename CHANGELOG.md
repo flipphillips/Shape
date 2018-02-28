@@ -27,6 +27,9 @@ The Skidmore Shape Package
 
 ## [Unreleased Changes]
 
+### xxx
+
+## [2.1.0] - 2018-02-27
 ### Added
 
 - Metrics, Patches, Region, DepthMap
