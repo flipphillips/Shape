@@ -1,7 +1,8 @@
 {
+  "name": "Shape Package",
   "major_version": 2,
-  "minor_version": 1,
-  "revision_number": 1,
-  "build_number": 1,
-  "date": "Tue Feb 27 21:10:00 EST 2018"
+  "minor_version": 2,
+  "revision_number": 0,
+  "build_number": 3,
+  "date": "Wed Mar  7 21:54:57 EST 2018"
 }

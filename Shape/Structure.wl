@@ -12,12 +12,6 @@
 (* :Limitations: *)
 (* :Discussion: *)
 
-BeginPackage["Shape`Structure`"]
-  
-VertexFrame::usage="VertexFrame[v,n,neighborhood] calculates the vertex frame for vertex v with normal n and neighbors."
-OBJStructure::usage="OBJStructure[filename] calculates the differential structure of the OBJ file. This file should have vertex normals."
- 
-Begin["`Private`"]
 
 (* returns p,n,pd1,pd2,k1,k2 *)
 
@@ -76,7 +70,7 @@ mVertexCoordinateRules[f_]:=Module[{ps},
 neighborFest[i_,raf_,ri_]:=Select[DeleteDuplicates[Flatten[Nest[raf, i, ri]]], # != i &]
 
 (*raf = ReplaceAll[Dispatch[mo["VertexVertexConnectivityRules"]]];*)
-  
+
 
 
 OBJStructure[f_] := 
@@ -86,11 +80,7 @@ OBJStructure[f_] :=
 		ns = Normalize/@Import[f,"VertexNormals"];
 
 		(* onering right now *)
-  		hoods =  vvcr[[All,2]] /. Dispatch[vcr];
-  
+		hoods =  vvcr[[All,2]] /. Dispatch[vcr];
+
 		MapThread[VertexFrame, {vcr[[All,2]], ns, hoods}]
 	]
-  		
-End[] (* End Private Context *)
-
-EndPackage[]

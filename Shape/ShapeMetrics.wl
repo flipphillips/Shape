@@ -16,41 +16,6 @@
 (* :Limitations: *)
 (* :Discussion: *)
 
-BeginPackage["Shape`ShapeMetrics`"]
-
-
-ShapeMetrics::usage="ShapeMetrics is a package containing a few curvature related functions to mathematica"
-
-(* compute curvatures from mean/gaussian cvt *)
-ToPrincipalCurvatures::usage="ToPrincipalCurvatures[H,K] gives kappa1 and kappa2 from mean and Gaussian curvatures. k1 <= k2"
-
-(* derivative based*)
-MeanCurvatureFromGradients::usage="MeanCurvatureFromGradients[dx,dy,dxx,dyy,dxy] gives H from 1st and 2nd derivates."
-GaussianCurvatureFromGradients::usage="GaussianCurvatureFromGradientsComputes[dx,dy,dxx,dyy,dxy] K from 1st and 2nd derivates."
-
-(* traditional, from curvatures *)
-GaussianCurvature::usage="GaussianCurvature[k1,k2] Gaussian curvature from principal curvatures k1,k2. Positive are synclastic, negative are anticlastic.";
-MeanCurvature::usage="MeanCurvature[k1,k2] Mean curvature of k1,k2.";
-
-(* koenderink's variants *)
-ShapeIndex::usage="ShapeIndex[k1,k2] Koenderink's Shape Index";
-Curvedness::usage="Curvedness[k1,k2] Koenderink's Curvedness";
-
-(* some other variants we developed *)
-CurvatureContrast::usage="CurvatureContrast[k1,k2] Phillips/Perotti's contrast measure.";
-MichelsonContrast::usage="MichelsonContrast[k1,k2] Michaelson contrast measure.";
-NormalizedCurvatureContrast::usage="NormalizedCurvatureContrast[k1,k2] Normalized Phillips/Perotti contrast measure.";
-TotalCurvature::usage="TotalCurvature[k1,k2] Absolute total curvature.";
-MaximumCurvature::usage="MaximumCurvature[k1,k2] Absolute maximum curvature";
-MaximumSignedCurvature::usage="MaximumSignedCurvature[k1,k2] Absolute maximum curvature with sign.";
-
-(* utility *)
-ShapeIndexColor::usage="ShapeIndexColor[si] Color coding on [-1,1] ala Koenderink. Green to red.";
-ShapeIndexCategory::usage="ShapeIndexCategory[si] Category coding on [-1,1] ala Koenderink. 1-9.";
-
-
-Begin["`Private`"] (* Begin Private Context *) 
-
 (* PC from H and K *)
 ToPrincipalCurvatures[h_,k_]:=
 	Module[{a=Clip[Sqrt[h^2-k],{0.0,Infinity}]},
@@ -130,7 +95,3 @@ ShapeIndexCategory[si_] :=
 			si <  1,   9,
 			True, 0
 		]
-
-
-End[] (* End Private Context *)
-EndPackage[]

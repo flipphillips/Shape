@@ -27,7 +27,9 @@ The Skidmore Shape Package
 
 ## [Unreleased Changes]
 
-### xxx
+### Changed
+
+- Refactored out of packages and into Paclets ala Arnoud's model
 
 ## [2.1.0] - 2018-02-27
 ### Added
