@@ -1,12 +1,20 @@
 #!/usr/bin/env wolframscript
 
-Print[];
-directory = DirectoryName[$InputFileName];
-Print["Using directory: ", directory];
-files = FileNames["*.paclet", directory];
-Print["Found paclets (to be deleted): ", files];
-DeleteFile /@ files;
-Print["Building new paclet"];
-paclet = PackPaclet[FileNameJoin[{directory, "Shape"}]];
-Print["New paclet: ", paclet];
+$packageName="Shape"
+$versionFile="version.json"
 
+(* this is buggy and doesn't do what I'd expect *)
+directory = DirectoryName[$InputFileName];
+Print["Building from directory: ", directory];
+
+pkgDir = FileNameJoin[{$UserBaseDirectory, "Applications", $packageName}];
+Print["Package directory: ", pkgDir];
+
+Print["Deleting old..."]
+If[FileNames[pkgDir]!={},DeleteDirectory[pkgDir,DeleteContents->True]];
+
+Print["Copying..."]
+CopyDirectory[$packageName,pkgDir];
+CopyFile[$versionFile,FileNameJoin[{pkgDir,$versionFile}]];
+
+Print["Done"]

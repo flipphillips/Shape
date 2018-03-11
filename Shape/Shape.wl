@@ -1,8 +1,8 @@
 (* As borrowed from Arnoud's templates *)
 
-PrintTemporary["Loading ",ToString[Length[Names["Shape`*"]]], " shape functions"];
+PrintTemporary["Loading ",ToString[Length[Names["Shape`*"]]], " S                        hape functions"];
 
-BeginPackage["Shape`",{"PacletManager`"}];
+BeginPackage["Shape`"];
 
 Get[FileNameJoin[{DirectoryName[$InputFileName],"Usage.wl"}]];
 
