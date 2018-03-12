@@ -1,5 +1,6 @@
-(* private functions, safearctan *)
+(* ::Package:: *)
 
+(* private functions, safearctan *)
 sarcTan[x_,y_]:=0.0/;x==0.0
 sarcTan[x_,y_]:=ArcTan[x,y]
 

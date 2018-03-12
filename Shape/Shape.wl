@@ -1,6 +1,8 @@
+(* ::Package:: *)
+
 (* As borrowed from Arnoud's templates *)
 
-PrintTemporary["Loading ",ToString[Length[Names["Shape`*"]]], " S                        hape functions"];
+PrintTemporary["Loading ",ToString[Length[Names["Shape`*"]]], " Shape package functions"];
 
 BeginPackage["Shape`"];
 
@@ -11,7 +13,9 @@ Begin["`Private`"];
 Module[{files},
 
   (* load in any session *)
-  files={"DepthMapShape.wl","RegionShape.wl","ShapeMetrics.wl","ShapePatches.wl","Structure.wl"};
+  files={"DepthMaps.wl","GeometryTools.wl",
+         "RegionShape.wl","ShapeMetrics.wl",
+         "ShapePatches.wl","Structure.wl","Volumes.wl"};
 
   Map[Get[FileNameJoin[{DirectoryName[$InputFileName], #}]] &, files];
 

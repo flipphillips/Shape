@@ -28,9 +28,19 @@ The Skidmore Shape Package
 ## [Unreleased Changes]
 
 ### Changed
-
 - Refactored out of packages and into Paclets ala Arnoud's model
-- version bumper
+- version build bumper
+- icon change
+- file names for consistency
+- rearrange of Development directory
+
+### Added
+- Volume tools
+- Geometry tools
+- 2D stuff to development
+
+
+## [2.2.0] - skipped
 
 ## [2.1.0] - 2018-02-27
 ### Added
@@ -45,7 +55,7 @@ The Skidmore Shape Package
 ### Changed
 
 - version in paclet and json
-- init.wl - now dows loads witn `Needs` so it doesn't break parallel stuff.
+- init.wl - now dows loads with `Needs` so it doesn't break parallel stuff.
 - added `f[{k1,k2}]` wrappers for `f[k1,k2]` scenarios. I *thought* there was a way to do this with options.
 
 ### Removed
