@@ -1,15 +1,26 @@
 #!/usr/bin/env wolframscript
 
-$packageName="Shape"
-$versionFile="version.json"
-
-(* this is buggy and doesn't do what I'd expect *)
-(* directory = DirectoryName[$InputFileName]; *)
 
 directory = Directory[];
+Print["Building from directory: ", directory];
+
+(* bump build *)
 FPVersionBumpBuild[directory];
 
-Print["Building from directory: ", directory];
+(* gerbils *)
+$packageName="Shape";
+$versionFile="version.json";
+$globalsFile="Globals.wl";
+
+$ShapeDebug=False;
+$ShapeVersion=FPVersionString[directory];
+
+(* global file *)
+gfile=FileNameJoin[{directory,$packageName,$globalsFile}];
+If[FileExistsQ[gfile], DeleteFile[gfile]];
+
+Save[gfile, {$ShapeDebug, $ShapeVersion}];
+
 
 pkgDir = FileNameJoin[{$UserBaseDirectory, "Applications", $packageName}];
 Print["Package directory: ", pkgDir];

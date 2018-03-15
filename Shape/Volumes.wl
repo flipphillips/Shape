@@ -7,12 +7,7 @@ cleanRegion[r_]:=Module[{bb,scale},
 	MeshRegion[MeshCoordinates[r],MeshCells[r,2]]]/;MeshRegionQ[r]
 
 
-
 Options[RegionToVolume]={ColorFunction->(1&),ColorFunctionScaling->True,Thickness->1.0};
-
-
-Options[PointCloudToVolume]={ColorFunction->(1&),ColorFunctionScaling->True};
-
 
 RegionToVolume[r_,res_,opts:OptionsPattern[]]:=
  Module[{bb,start,stop,step,pad,pfDistance,theD,cf,samples,dom,h,zero,thick,thresh},
@@ -38,6 +33,8 @@ RegionToVolume[r_,res_,opts:OptionsPattern[]]:=
 
 	Map[If[Last[#]<thresh,cf@@#,zero]&,theD,{3}]]
 
+
+Options[PointCloudToVolume]={ColorFunction->(1&),ColorFunctionScaling->True};
 
 PointCloudToVolume[p_,res_,opts:OptionsPattern[]]:= Module[{pp,bb,ranges,starts,stops,step,bins},
 	(* convert coordinate system properly? *)

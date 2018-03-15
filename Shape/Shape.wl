@@ -1,13 +1,11 @@
 (* ::Package:: *)
 
 (* As borrowed from Arnoud's templates *)
-
-
 BeginPackage["Shape`"];
 
 directory = Directory[];
 
-Get[FileNameJoin[{directory,"Globals.wl"]];
+Get[FileNameJoin[{directory,"Globals.wl"}]];
 Get[FileNameJoin[{directory,"Usage.wl"}]];
 
 If[$ShapeDebug,PrintTemporary["Loading ",ToString[Length[Names["Shape`*"]]], " Shape package functions"]];
