@@ -2,11 +2,15 @@
 
 (* As borrowed from Arnoud's templates *)
 
-PrintTemporary["Loading ",ToString[Length[Names["Shape`*"]]], " Shape package functions"];
 
 BeginPackage["Shape`"];
 
-Get[FileNameJoin[{DirectoryName[$InputFileName],"Usage.wl"}]];
+directory = Directory[];
+
+Get[FileNameJoin[{directory,"Globals.wl"]];
+Get[FileNameJoin[{directory,"Usage.wl"}]];
+
+If[$ShapeDebug,PrintTemporary["Loading ",ToString[Length[Names["Shape`*"]]], " Shape package functions"]];
 
 Begin["`Private`"];
 
@@ -17,13 +21,13 @@ Module[{files},
          "RegionShape.wl","ShapeMetrics.wl",
          "ShapePatches.wl","Structure.wl","Volumes.wl"};
 
-  Map[Get[FileNameJoin[{DirectoryName[$InputFileName], #}]] &, files];
+  Map[Get[FileNameJoin[{directory, #}]] &, files];
 
   (* only load in a notebook session *)
 (*
   If[ Head[$FrontEnd] === FrontEndObject,
     files = {"Dock.wl","Notebook.wl"};
-    Map[ Get[ FileNameJoin[{DirectoryName[$InputFileName], #}] ] &, files ];
+    Map[ Get[ FileNameJoin[{directory, #}] ] &, files ];
   ]
 *)
 
