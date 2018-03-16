@@ -1,3 +1,3 @@
 $ShapeDebug = False
  
-$ShapeVersion = "2.3.0"
+$ShapeVersion = "2.4.0"
