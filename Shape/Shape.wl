@@ -3,7 +3,7 @@
 (* As borrowed from Arnoud's templates *)
 BeginPackage["Shape`"];
 
-directory = Directory[];
+directory = DirectoryName[$InputFileName];
 
 Get[FileNameJoin[{directory,"Globals.wl"}]];
 Get[FileNameJoin[{directory,"Usage.wl"}]];
