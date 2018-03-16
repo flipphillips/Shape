@@ -1,20 +1,26 @@
 (* ::Package:: *)
 
 (* ::Section:: *)
+(*Automatically Generated*)
+
+$ShapeVersion::usage = "$ShapeVersion gives its best guess as to the version we're using.";
+$ShapeDebug::usage = "$ShapeDebug let's us know if the package was built with any debugging tools.";
+
+(* ::Section:: *)
 (*DepthMaps*)
 
 
-imagePartials::usage = "imagePartials[img,sigma] returns {dix,diy,dixx,diyy,dixy}";
-structureTensor::usage = "structureTensor[img,sigma] computes an image containing the structure tensor with {J11,J22,J12} in {R,G,B}";
-orientationMap::usage = "orientationMap[img,sigma] returns an orientation map";
-ridgeMap::usage = "ridgeMap[img,sigma] computes a ridge filter on img";
-tJunctionMap::usage = "tJunctionMap[img,sigma] computes a t-junction filter on img";
-vectorFieldMap::usage = "vectorFieldMap[img,sigma] computes vector flow field on img.";
-normalMap::usage = "normalMap[img,sigma] gives an RGB normal map from img.";
-flowMap::usage = "flowMap[img,sigma] gives a flow direction map from img.";
-formsMap::usage = "formsMap[img,sigma] returns {e,f,g,E,F,G} map from img.";
-curvaturesMap::usage = "curvaturesMap[img,sigma] returns kmin,kmax from image.";
-mapToImage::usage = "mapToImage[map,mask] turns a map into an image with optional mask";
+ImagePartials::usage = "ImagePartials[img,sigma] returns {dix,diy,dixx,diyy,dixy}";
+StructureTensor::usage = "StructureTensor[img,sigma] computes an image containing the structure tensor with {J11,J22,J12} in {R,G,B}";
+OrientationMap::usage = "OrientationMap[img,sigma] returns an orientation map";
+RidgeMap::usage = "RidgeMap[img,sigma] computes a ridge filter on img";
+TJunctionMap::usage = "TJunctionMap[img,sigma] computes a t-junction filter on img";
+VectorFieldMap::usage = "VectorFieldMap[img,sigma] computes vector flow field on img.";
+NormalMap::usage = "NormalMap[img,sigma] gives an RGB normal map from img.";
+FlowMap::usage = "FlowMap[img,sigma] gives a flow direction map from img.";
+FormsMap::usage = "FormsMap[img,sigma] returns {e,f,g,E,F,G} map from img.";
+CurvaturesMap::usage = "CurvaturesMap[img,sigma] returns kmin,kmax from image.";
+MapToImage::usage = "MapToImage[map,mask] turns a map into an image with optional mask";
 
 
 (* ::Section:: *)

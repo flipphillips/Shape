@@ -3,8 +3,11 @@
 # paclet builder
 #
 
+packageName = "Shape";
 directory = Directory[];
-Print["Building from directory: ", directory];
+pacletDirectory = FileNameJoin[{directory, packageName}];
+
+Print["Building from: ", directory];
 
 (* bump build *)
 FPVersionBumpBuild[directory];
@@ -15,13 +18,11 @@ $versionFile="version.json";
 $globalsFile="Globals.wl";
 
 $ShapeDebug=False;
-$ShapeVersion=FPVersionString[directory];
-(* $ShapeBuild=FPVersionInfo[directory]["build_number"]; *)
+$ShapeVersion=FPVersionString[directory,"Build"->True];
 
 (* create global file *)
 gfile=FileNameJoin[{directory,$packageName,$globalsFile}];
 If[FileExistsQ[gfile], DeleteFile[gfile]];
-
 Save[gfile, {$ShapeDebug, $ShapeVersion}];
 
 (* delete old paclet *)
@@ -31,8 +32,14 @@ DeleteFile /@ files;
 
 (* build new paclet *)
 Print["Building new paclet"];
-paclet = PackPaclet[FileNameJoin[{directory, "Shape"}]];
+UpdatePacletFile[pacletDirectory,directory];
+paclet = PackPaclet[pacletDirectory];
 Print["New paclet: ", paclet];
+
+paclets = PacletFind[packageName];
+Print["Found the following old paclets (uninstalling): ", Map[ #["Location"]&, paclets]];
+Map[ PacletUninstall, paclets ];
+
 
 (* install new paclet *)
 Print["Installing new paclet"]

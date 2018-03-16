@@ -2,7 +2,6 @@
 
 - better tests
 - refactor `Structure.wl` <- Merge into `RegionShape` perhaps?
-- rename/factor stuff in `DepthMapShape`
 - add VFN methods to `GeometryTools`
     - `ToNormalLines`
     - `ToFrameLines`

@@ -25,7 +25,7 @@ The Skidmore Shape Package
 - `Security` in case of vulnerabilities. 
 -->
 
-## [Unreleased Changes]
+## [2.4.1] - 15 March 2018
 
 ### Changed
 - Refactored out of packages and into Paclets ala Arnoud's model
@@ -33,11 +33,14 @@ The Skidmore Shape Package
 - icon change
 - file names for consistency
 - rearrange of Development directory
+- Renamed DepthMap stuff for consistency
 
 ### Added
 - Volume tools
 - Geometry tools
 - 2D stuff to development
+- Automatic versioning / paclet generation in build
+- Globals w/ version strings and things
 
 
 ## [2.2.0] - skipped

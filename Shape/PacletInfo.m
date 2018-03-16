@@ -5,8 +5,8 @@ Paclet[
   Publisher -> "Skidmore Vision Lab",
   Copyright -> "©1997-2018 Flip Phillips",
   (* License -> "MIT", *)
-  Version -> "2.4.0",
-  BuildNumber -> "18",
+  Version -> "2.4.1",
+  BuildNumber -> "28",
   MathematicaVersion -> "11.2+",
   URL -> "https://github.com/skidvision/Shape",
   Thumbnail -> "Documentation/icon.png",
