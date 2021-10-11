@@ -25,6 +25,12 @@ The Skidmore Shape Package
 - `Security` in case of vulnerabilities. 
 -->
 
+## [WIP] - 
+
+### Changed
+- Trying to fix some namespace errors in the `DepthMap` universe
+- Debugging some build problems
+
 ## [2.4.1] - 15 March 2018
 
 ### Changed

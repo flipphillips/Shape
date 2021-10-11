@@ -6,7 +6,7 @@ Paclet[
   Copyright -> "©1997-2018 Flip Phillips",
   (* License -> "MIT", *)
   Version -> "2.4.1",
-  BuildNumber -> "28",
+  BuildNumber -> "29",
   MathematicaVersion -> "11.2+",
   URL -> "https://github.com/skidvision/Shape",
   Thumbnail -> "Documentation/icon.png",

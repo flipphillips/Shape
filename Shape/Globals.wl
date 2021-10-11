@@ -1,3 +1,3 @@
 $ShapeDebug = False
  
-$ShapeVersion = "2.4.1 build 28"
+$ShapeVersion = FPVersionString["/Users/flip/GitHub/Shape", "Build" -> True]

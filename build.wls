@@ -3,6 +3,8 @@
 # paclet builder
 #
 
+Needs["FPTools`"]
+
 packageName = "Shape";
 directory = Directory[];
 pacletDirectory = FileNameJoin[{directory, packageName}];
@@ -33,7 +35,7 @@ DeleteFile /@ files;
 (* build new paclet *)
 Print["Building new paclet"];
 UpdatePacletFile[pacletDirectory,directory];
-paclet = PackPaclet[pacletDirectory];
+paclet = CreatePacletArchive[pacletDirectory];
 Print["New paclet: ", paclet];
 
 paclets = PacletFind[packageName];
