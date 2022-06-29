@@ -1,8 +1,17 @@
 (* ::Package:: *)
 
+(* ::Section:: *)
+(*Maps*)
+
+
+(* ::Text:: *)
+(*Tools for doing things to raster grids, depths, intensities, whatevers.*)
+
+
 (* private functions, safearctan *)
-sarcTan[x_,y_]:=0.0/;x==0.0
-sarcTan[x_,y_]:=ArcTan[x,y]
+
+sarcTan[x_, y_] := 0.0 /; x == 0.0
+sarcTan[x_, y_] := ArcTan[x, y]
 
 
 RidgeMap[img_,\[Sigma]_:1] := Module[{Lxx,Lxy,Lyy},
@@ -102,6 +111,10 @@ FormsMap[img_,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy,Emap,Fmap,Gmap,emap,f
 FormsMap[img_Image,\[Sigma]_:1]:=Image[FormsMap[ImageData[img],\[Sigma]]]
 
 
+(* ::Text:: *)
+(*Needs fixin :*)
+
+
 CurvaturesMap[img_,\[Sigma]_:1]:=Module[{Emap,Fmap,Gmap,emap,fmap,gmap,kk1,kk2},
 	{emap,fmap,gmap,Emap,Fmap,Gmap} = FormsMap[img,\[Sigma]];
 	
@@ -113,6 +126,7 @@ CurvaturesMap[img_,\[Sigma]_:1]:=Module[{Emap,Fmap,Gmap,emap,fmap,gmap,kk1,kk2},
 
 
 CurvaturesMap[img_Image,\[Sigma]_:1]:=Image[CurvaturesMap[ImageData[img],\[Sigma]]]
+
 
 (* Utilities *)
 MapToImage[map_,mask_:None]:=ImageMultiply[Image[map],If[mask===None,1,mask]]

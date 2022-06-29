@@ -68,6 +68,43 @@ ShapeCurvednessPatch::usage="ShapeCurvednessPatch[s,c][u,v] gives a function of 
 MeanGaussianPatch::usage="MeanGaussianPatch[h,k][u,v] gives a function of u,v from mean and Gaussian curvatures that generates z."
 
 
+(* ::Subsubsection:: *)
+(*Maps*)
+
+
+ImagePartials::usage="ImagePartials[img]"
+
+
+RidgeMap::usage="RidgeMap[img] returns a map of differential ridges in img."
+
+
+TJunctionMap::usage="TJunctionMap[img]"
+
+
+VectorFieldMap::usage="VectorFieldMap[img]"
+
+
+StructureTensor::usage="StructureTensor[img]"
+
+
+OrientationMap::usage="OrientationMap[img]"
+
+
+NormalMap::usage="NormalMap[img]"
+
+
+FlowMap::usage="FlowMap[img]"
+
+
+FormsMap::usage="FormsMap[img]"
+
+
+CurvaturesMap::usage="CurvaturesMap[img]"
+
+
+MapToImage::usage="MapToImage[map_,mask_:None"
+
+
 (* ::Subsection:: *)
 (*Whereami*)
 
@@ -78,7 +115,7 @@ Begin["`Private`"];
 directory=DirectoryName[$InputFileName];
 
 
-files = {"ShapeMetrics.wl", "ShapePatches.wl"}; 
+files = {"ShapeMetrics.wl", "ShapePatches.wl","Maps.wl"}; 
 Map[Get[FileNameJoin[{directory, #}]]&, files];
 
 

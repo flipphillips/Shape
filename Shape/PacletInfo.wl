@@ -38,7 +38,11 @@ PacletObject[
           "Flip`Shape`ShapeIndex",
           "Flip`Shape`ShapeIndexCategory",
           "Flip`Shape`ShapeIndexColor",
-          "Flip`Shape`TotalCurvature"
+          "Flip`Shape`TotalCurvature",
+          
+          "Flip`Shape`RidgeMap",
+          "Flip`Shape`TJunctionMap",
+          "Flip`Shape`VectorFieldMap"
         }
       },
       {"Documentation", "Language" -> "English"}
