@@ -2,4 +2,5 @@
 *.png filter=lfs diff=lfs merge=lfs -text
 *.ply filter=lfs diff=lfs merge=lfs -text
 *.mx filter=lfs diff=lfs merge=lfs -text
+*.wxf filter=lfs diff=lfs merge=lfs -text
 *.psd filter=lfs diff=lfs merge=lfs -text
