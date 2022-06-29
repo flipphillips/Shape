@@ -10,4 +10,4 @@
 - Import defaults to `MeshRegion` so we might need / want to work within this framework now...
 - Import ShapeStatistics for 2D stuff
 - Find Farley Shape stuff
-- How much of Development or TODO do I want to push out?
+- How much of Development or TODO do I want to push out publicly?
