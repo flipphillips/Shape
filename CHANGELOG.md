@@ -27,8 +27,15 @@ The Skidmore now RIT Shape Package
 
 ## [WIP] - nee [3.0.0]
 
-- 3.0 breaks `Shape` out into its own Paclet Manager / Repository system.
-## [2.4.3]
+3.0 breaks `Shape` out of the `GeometryTools` package into its own Paclet Manager / Repository system. Very much WIP but working on it.
+
+### Changed
+
+- Generalized `DepthMap` into `Maps` for 2D raster data.
+- Started Paclet Manager migration.
+
+
+## [2.4.3] - 2019
 ### Changed
 - Trying to fix some namespace errors in the `DepthMap` universe
 - Debugging some build problems

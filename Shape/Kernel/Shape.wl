@@ -73,36 +73,16 @@ MeanGaussianPatch::usage="MeanGaussianPatch[h,k][u,v] gives a function of u,v fr
 
 
 ImagePartials::usage="ImagePartials[img]"
-
-
 RidgeMap::usage="RidgeMap[img] returns a map of differential ridges in img."
-
-
 TJunctionMap::usage="TJunctionMap[img]"
-
-
 VectorFieldMap::usage="VectorFieldMap[img]"
-
-
 StructureTensor::usage="StructureTensor[img]"
-
-
 OrientationMap::usage="OrientationMap[img]"
-
-
 NormalMap::usage="NormalMap[img]"
-
-
 FlowMap::usage="FlowMap[img]"
-
-
 FormsMap::usage="FormsMap[img]"
-
-
 CurvaturesMap::usage="CurvaturesMap[img]"
-
-
-MapToImage::usage="MapToImage[map_,mask_:None"
+MapToImage::usage="MapToImage[map]"
 
 
 (* ::Subsection:: *)

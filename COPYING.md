@@ -1,4 +1,4 @@
-Shape is Copyright (C) 2017, Flip Phillips
+Shape is Copyright (C) 1997--2022, Flip Phillips
 
 ---
 
