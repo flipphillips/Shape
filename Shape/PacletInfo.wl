@@ -5,7 +5,7 @@ PacletObject[
     "Name" -> "Flip/Shape",
     "Description" -> "Tools for the intelligence of shape",
     "Creator" -> "Flip Phillips",
-    "License" -> "CC BY-NC 4.0",
+    "License" -> "MIT",
     "PublisherID" -> "Flip",
     "Version" -> "3.0.0",
     "WolframVersion" -> "10.1+",

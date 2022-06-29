@@ -33,6 +33,7 @@ The Skidmore now RIT Shape Package
 
 - Generalized `DepthMap` into `Maps` for 2D raster data.
 - Started Paclet Manager migration.
+- MIT license
 
 
 ## [2.4.3] - 2019

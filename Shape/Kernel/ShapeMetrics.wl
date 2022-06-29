@@ -12,7 +12,7 @@
 *)
 (* :Package Version: $Revision: 32 $ *)
 (* :Mathematica Version: 10.0+ *)
-(* :Copyright: Copyright 1999-2016, Flip Phillips, All Rights Reserved.  *)
+(* :Copyright: Copyright 1999-2016, Flip Phillips, All Rights Reserved. 2017-- MIT License *)
 (* :History: May14  added new contrast metric
 			 Feb15 added visualization
 			 Apr16 added conditional versions of shape index, derived K, H, etc  *)

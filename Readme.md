@@ -4,14 +4,13 @@ v3.0.0
 
 ![](icon.png)
 
-# Shape
-Shape analysis and classification routines for Mathematica
+Shape analysis and classification routines for Wolfram Language.
 
-Copyright © 1997-2022 Flip Phillips, CC BY-NC 4.0.
+Copyright © 1997-2022 Flip Phillips.
+
+Shape is licensed under the MIT license.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for details.
-
-> A package for computing differential geometry using _Mathematica_.
 
 > Based on a bunch of work I've done since about 1995 or so. Bits and pieces borrowed from Koenderink, Gray, &c.
 
@@ -25,34 +24,34 @@ Right now, `Shape` is broken into five sub-modules:
 * ShapePatches
 * Structure
 
-### DepthMap
+### MapShape
 
 Contains routines for calculating depth-map based shape using structure tensor shenanigans. All `sigma` default to 1.0 pixels.
 
 
-`imagePartials[img,sigma]` returns `{dix,diy,dixx,diyy,dixy}` using a filter size of sigma.
+`ImagePartials[img,sigma]` returns `{dix,diy,dixx,diyy,dixy}` using a filter size of sigma.
 
-`structureTensor[img,sigma]` computes an image containing the structure tensor with `{J11,J22,J12}` in `{R,G,B}`
+`StructureTensor[img,sigma]` computes an image containing the structure tensor with `{J11,J22,J12}` in `{R,G,B}`
 
-`orientationMap[img,sigma]` returns an `xyz` orientation map in `{R,G,B}`.
+`OrientationMap[img,sigma]` returns an `xyz` orientation map in `{R,G,B}`.
 
-`ridgeMap[img,sigma]` computes a ridge filter on img using a filter size of sigma.
+`RidgeMap[img,sigma]` computes a ridge filter on img using a filter size of sigma.
 
-`tJunctionMap[img,sigma]` computes a t-junction filter on img using a filter size of sigma.
+`TJunctionMap[img,sigma]` computes a t-junction filter on img using a filter size of sigma.
 
-`vectorFieldMap[img,sigma]` computes vector flow field on img using a filter size of sigma.
+`VectorFieldMap[img,sigma]` computes vector flow field on img using a filter size of sigma.
 
-`imagePartials[img,sigma]` returns `{dix,diy,dixx,diyy,dixy}` on img using a filter size of sigma.
+`ImagePartials[img,sigma]` returns `{dix,diy,dixx,diyy,dixy}` on img using a filter size of sigma.
 
-`normalMap[img,sigma]` gives an RGB normal map from img using a filter size of sigma.
+`NormalMap[img,sigma]` gives an RGB normal map from img using a filter size of sigma.
 
-`flowMap[img,sigma]` gives a flow direction map from img using a filter size of sigma.
+`FlowMap[img,sigma]` gives a flow direction map from img using a filter size of sigma.
 
-`formsMap[img,sigma]` returns `{e,f,g,E,F,G}` map from img using filter size sigma.
+`FormsMap[img,sigma]` returns `{e,f,g,E,F,G}` map from img using filter size sigma.
 
-`curvaturesMap[img,sigma]`returns a 2-channel kmin, kmax map from img using filter size sigma.
+`CurvaturesMap[img,sigma]`returns a 2-channel kmin, kmax map from img using filter size sigma.
 
-`mapToImage[map,mask]` turns a map into an image with optional mask.
+`MapToImage[map,mask]` turns a map into an image with optional mask.
 
 ### Shape Metrics
 
@@ -100,13 +99,8 @@ Generate simple parameterized shapes constrained by curvatures.
 
 ### Structure
 
-A start at stuff that derives structural information for objects. They make some assumptions about the representation. This is slowly being migrated from the 1.x `Shape` stuff.
-
-`VertexFrame[v,n,neighborhood]` calculates the vertex frame for vertex v with normal n and neighbors.
-
-`OBJStructure[filename]` calculates the differential structure of the OBJ file. This file should have vertex normals.
- 
+TBD
 
 ### RegionShape
 
-Will contain methods for applying shape calculations to `Region`
+TBD
