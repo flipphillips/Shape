@@ -7,7 +7,7 @@ v3.0.0
 # Shape
 Shape analysis and classification routines for Mathematica
 
-© 1997-2017 Flip Phillips, All Rights Reserved.
+Copyright © 1997-2022 Flip Phillips, CC BY-NC 4.0.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for details.
 
@@ -19,7 +19,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for details.
 
 Right now, `Shape` is broken into five sub-modules:
 
-* DepthMapShape
+* MapShape
 * RegionShape
 * ShapeMetrics
 * ShapePatches
