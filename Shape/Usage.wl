@@ -3,8 +3,11 @@
 (* ::Section:: *)
 (*Automatically Generated*)
 
+
 $ShapeVersion::usage = "$ShapeVersion gives its best guess as to the version we're using.";
 $ShapeDebug::usage = "$ShapeDebug let's us know if the package was built with any debugging tools.";
+
+
 
 (* ::Section:: *)
 (*DepthMaps*)
