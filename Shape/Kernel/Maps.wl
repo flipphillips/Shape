@@ -1,8 +1,17 @@
 (* ::Package:: *)
 
+(* ::Section:: *)
+(*Maps*)
+
+
+(* ::Text:: *)
+(*Tools for doing things to raster grids, depths, intensities, whatevers.*)
+
+
 (* private functions, safearctan *)
-sarcTan[x_,y_]:=0.0/;x==0.0
-sarcTan[x_,y_]:=ArcTan[x,y]
+
+sarcTan[x_, y_] := 0.0 /; x == 0.0
+sarcTan[x_, y_] := ArcTan[x, y]
 
 
 RidgeMap[img_,\[Sigma]_:1] := Module[{Lxx,Lxy,Lyy},
@@ -11,7 +20,7 @@ RidgeMap[img_,\[Sigma]_:1] := Module[{Lxx,Lxy,Lyy},
 ]
 
 
-RidgeMap[img_Image,s_:1]:=Image[ridgeMap[ImageData[img],s]]
+RidgeMap[img_Image,s_:1]:=Image[RidgeMap[ImageData[img],s]]
 
 
 TJunctionMap[img_,\[Sigma]_:1] := 
@@ -23,7 +32,7 @@ Module[{Lx,Ly,Lxx,Lxy,Lyy,Lxxx,Lxxy,Lxyy,Lyyy},
 ]
 
 
-TJunctionMap[img_Image,s_:1]:=Image[tJunctionMap[ImageData[img],s]]
+TJunctionMap[img_Image,s_:1]:=Image[TJunctionMap[ImageData[img],s]]
 
 
 VectorFieldMap[img_,\[Sigma]_:1]:=Module[{Lx,Ly,im,res},
@@ -32,7 +41,7 @@ VectorFieldMap[img_,\[Sigma]_:1]:=Module[{Lx,Ly,im,res},
 ]	
 
 
-VectorFieldMap[img_Image,s_:1]:=Image[vectorFieldMap[ImageData[img],s]]
+VectorFieldMap[img_Image,s_:1]:=Image[VectorFieldMap[ImageData[img],s]]
 
 
 ImagePartials[img_,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy},
@@ -44,7 +53,7 @@ ImagePartials[img_,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy},
 	{dix,diy,dixx,diyy,dixy}]
 
 
-ImagePartials[img_Image,s_:1]:=Image[imagePartials[ImageData[img],s]]
+ImagePartials[img_Image,s_:1]:=Image[ImagePartials[ImageData[img],s]]
 
 
 StructureTensor[img_,s_:1]:=Module[{dix,diy,j11,j22,j12},
@@ -60,11 +69,11 @@ StructureTensor[img_Image,s_:1]:=ColorCombine[structureTensor[ImageData[img],s]]
 
 
 OrientationMap[img_,s_:1]:=Module[{j11,j22,j12},
-	{j11,j22,j12} = structureTensor[img,s];
+	{j11,j22,j12} = StructureTensor[img,s];
 	ArcTan[j22-j11, 2 j12]/2.0]
 
 
-OrientationMap[img_Image,s_:1]:=Image[orientationMap[ImageData[img],3]]
+OrientationMap[img_Image,s_:1]:=Image[OrientationMap[ImageData[img],3]]
 
 
 NormalMap[img_,\[Sigma]_:1]:=Module[{dix,diy},
@@ -73,7 +82,7 @@ NormalMap[img_,\[Sigma]_:1]:=Module[{dix,diy},
 	Chop[MapThread[{-#1,-#2,1}/Sqrt[1+#1^2+#2^2]&,{dix,diy},2]]]
 
 
-NormalMap[img_Image,\[Sigma]_:1]:=Image[normalMap[ImageData[img],\[Sigma]]]
+NormalMap[img_Image,\[Sigma]_:1]:=Image[NormalMap[ImageData[img],\[Sigma]]]
 
 
 FlowMap[img_,\[Sigma]_:1]:=Module[{dix,diy},
@@ -82,11 +91,11 @@ FlowMap[img_,\[Sigma]_:1]:=Module[{dix,diy},
 	Chop[MapThread[sarcTan[#1,#2]&,{dix,diy},2]]]
 
 
-FlowMap[img_Image,\[Sigma]_:1]:=Image[flowMap[ImageData[img],\[Sigma]]]
+FlowMap[img_Image,\[Sigma]_:1]:=Image[FlowMap[ImageData[img],\[Sigma]]]
 
 
 FormsMap[img_,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy,Emap,Fmap,Gmap,emap,fmap,gmap},
-	{dix,diy,dixx,diyy,dixy} = imagePartials[img,\[Sigma]];
+	{dix,diy,dixx,diyy,dixy} = ImagePartials[img,\[Sigma]];
 	
 	Emap=Map[1+#^2&,dix,{2}];
 	Fmap=MapThread[#1 #2&,{dix,diy},2];
@@ -99,11 +108,15 @@ FormsMap[img_,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy,Emap,Fmap,Gmap,emap,f
 	{emap,fmap,gmap,Emap,Fmap,Gmap}]
 
 
-FormsMap[img_Image,\[Sigma]_:1]:=Image[formsMap[ImageData[img],\[Sigma]]]
+FormsMap[img_Image,\[Sigma]_:1]:=Image[FormsMap[ImageData[img],\[Sigma]]]
+
+
+(* ::Text:: *)
+(*Needs fixin :*)
 
 
 CurvaturesMap[img_,\[Sigma]_:1]:=Module[{Emap,Fmap,Gmap,emap,fmap,gmap,kk1,kk2},
-	{emap,fmap,gmap,Emap,Fmap,Gmap} = formsMap[img,\[Sigma]];
+	{emap,fmap,gmap,Emap,Fmap,Gmap} = FormsMap[img,\[Sigma]];
 	
 	kk1=(-#3 #4+2 #2 #5-#1 #6+Sqrt[(#3 #4-2 #2 #5+#1 #6)^2-4 (#2^2-#1 #3) (#5^2-#4 #6)])/(2 (#5^2-#4 #6));
 	kk2=-((#3 #4-2 #2 #5+#1 #6+Sqrt[(#3 #4-2 #2 #5+#1 #6)^2-4 (#2^2-#1 #3) (#5^2-#4 #6)])/(2 (#5^2-#4 #6)));
@@ -112,7 +125,8 @@ CurvaturesMap[img_,\[Sigma]_:1]:=Module[{Emap,Fmap,Gmap,emap,fmap,gmap,kk1,kk2},
 ]
 
 
-CurvaturesMap[img_Image,\[Sigma]_:1]:=Image[curvaturesMap[ImageData[img],\[Sigma]]]
+CurvaturesMap[img_Image,\[Sigma]_:1]:=Image[CurvaturesMap[ImageData[img],\[Sigma]]]
+
 
 (* Utilities *)
 MapToImage[map_,mask_:None]:=ImageMultiply[Image[map],If[mask===None,1,mask]]

@@ -1,6 +1,6 @@
 # Change Log
 
-The Skidmore Shape Package
+The Skidmore now RIT Shape Package
 
 ![](icon.png)
 
@@ -24,6 +24,14 @@ The Skidmore Shape Package
 - `Fixed` for any bug fixes.
 - `Security` in case of vulnerabilities. 
 -->
+
+## [WIP] - nee [3.0.0]
+
+- 3.0 breaks `Shape` out into its own Paclet Manager / Repository system.
+## [2.4.3]
+### Changed
+- Trying to fix some namespace errors in the `DepthMap` universe
+- Debugging some build problems
 
 ## [2.4.1] - 15 March 2018
 
