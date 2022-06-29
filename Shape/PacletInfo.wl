@@ -16,7 +16,7 @@ PacletObject[
         "Context" -> {
           {
             "Flip`Shape`",
-            "DifferentialGeometry.wl"
+            "Shape.wl"
           }
         },
         "Symbols" -> {

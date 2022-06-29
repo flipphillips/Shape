@@ -27,7 +27,7 @@ The Skidmore now RIT Shape Package
 
 ## [WIP] - nee [3.0.0]
 
-- 3.0 breaks `DifferentialGeometry` out into its own Paclet Manager / Repository system.
+- 3.0 breaks `Shape` out into its own Paclet Manager / Repository system.
 ## [2.4.3]
 ### Changed
 - Trying to fix some namespace errors in the `DepthMap` universe
