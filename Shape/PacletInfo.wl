@@ -34,6 +34,7 @@ PacletObject[
           "Flip`Shape`NormalizedCurvatureContrast",
           "Flip`Shape`PrincipalCurvaturesFromHK",
           "Flip`Shape`PrincipalCurvaturesFromSC",
+          "Flip`Shape`PrincipalCurvaturesFromIII",
           "Flip`Shape`ShapeCurvednessPatch",
           "Flip`Shape`ShapeIndex",
           "Flip`Shape`ShapeIndexCategory",
@@ -42,7 +43,8 @@ PacletObject[
           
           "Flip`Shape`RidgeMap",
           "Flip`Shape`TJunctionMap",
-          "Flip`Shape`VectorFieldMap"
+          "Flip`Shape`VectorFieldMap",
+          "Flip`Shape`CurvatureMaps"
         }
       },
       {"Documentation", "Language" -> "English"}

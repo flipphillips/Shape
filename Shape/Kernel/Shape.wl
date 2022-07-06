@@ -19,6 +19,9 @@ MeanCurvatureFromGradients::usage="MeanCurvatureFromGradients[dx,dy,dxx,dyy,dxy]
 GaussianCurvatureFromGradients::usage="GaussianCurvatureFromGradientsComputes[dx,dy,dxx,dyy,dxy] K from 1st and 2nd derivates."
 
 
+PrincipalCurvaturesFromIII::usage="PrincipalCurvaturesFromIII[e,f,g,l,m,n] computes k1 and k2 from the first (e,f,g) and second (l,m,n) fundimental forms."
+
+
 (* ::Subsubsection:: *)
 (*Metrics - Traditional*)
 
@@ -81,7 +84,7 @@ OrientationMap::usage="OrientationMap[img]"
 NormalMap::usage="NormalMap[img]"
 FlowMap::usage="FlowMap[img]"
 FormsMap::usage="FormsMap[img]"
-CurvaturesMap::usage="CurvaturesMap[img]"
+CurvatureMaps::usage="CurvatureMaps[img]"
 MapToImage::usage="MapToImage[map]"
 
 

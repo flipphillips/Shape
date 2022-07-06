@@ -8,19 +8,19 @@
 (*Tools for doing things to raster grids, depths, intensities, whatevers.*)
 
 
-(* private functions, safearctan *)
+(* private functions, safearctan, need to know what data type is *)
 
 sarcTan[x_, y_] := 0.0 /; x == 0.0
 sarcTan[x_, y_] := ArcTan[x, y]
 
 
-RidgeMap[img_,\[Sigma]_:1] := Module[{Lxx,Lxy,Lyy},
+RidgeMap[img_Image,\[Sigma]_:1] := Module[{Lxx,Lxy,Lyy},
 	{Lxx,Lxy,Lyy}=DerivativeFilter[img,{{0,2},{1,1},{2,0}},\[Sigma]];
 	Chop[\[Sigma]^(3/2)/2 (Sqrt[(Lxx - Lyy)^2+ 4 Lxy^2]-Lxx-Lyy)]
 ]
 
 
-RidgeMap[img_Image,s_:1]:=Image[RidgeMap[ImageData[img],s]]
+(* RidgeMap[img_Image,s_:1]:=Image[RidgeMap[ImageData[img],s]] *)
 
 
 TJunctionMap[img_,\[Sigma]_:1] := 
@@ -44,7 +44,7 @@ VectorFieldMap[img_,\[Sigma]_:1]:=Module[{Lx,Ly,im,res},
 VectorFieldMap[img_Image,s_:1]:=Image[VectorFieldMap[ImageData[img],s]]
 
 
-ImagePartials[img_,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy},
+ImagePartials[img_Image,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy},
 	dix=DerivativeFilter[img,{1,0},\[Sigma]];
 	diy=DerivativeFilter[img,{0,1},\[Sigma]];
 	dixx=DerivativeFilter[img,{2,0},\[Sigma]];
@@ -53,7 +53,7 @@ ImagePartials[img_,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy},
 	{dix,diy,dixx,diyy,dixy}]
 
 
-ImagePartials[img_Image,s_:1]:=Image[ImagePartials[ImageData[img],s]]
+(* ImagePartials[img_Image,s_:1]:=Image[ImagePartials[ImageData[img],s]] *)
 
 
 StructureTensor[img_,s_:1]:=Module[{dix,diy,j11,j22,j12},
@@ -94,38 +94,24 @@ FlowMap[img_,\[Sigma]_:1]:=Module[{dix,diy},
 FlowMap[img_Image,\[Sigma]_:1]:=Image[FlowMap[ImageData[img],\[Sigma]]]
 
 
-FormsMap[img_,\[Sigma]_:1]:=Module[{dix,diy,dixx,diyy,dixy,Emap,Fmap,Gmap,emap,fmap,gmap},
-	{dix,diy,dixx,diyy,dixy} = ImagePartials[img,\[Sigma]];
-	
-	Emap=Map[1+#^2&,dix,{2}];
-	Fmap=MapThread[#1 #2&,{dix,diy},2];
-	Gmap=Map[1+#^2&,diy,{2}];
-	
-	emap=MapThread[#3/Sqrt[1+#1^2+#2^2]&,{dix,diy,dixx},2];
-	fmap=MapThread[#3/Sqrt[1+#1^2+#2^2]&,{dix,diy,dixy},2];
-	gmap=MapThread[#3/Sqrt[1+#1^2+#2^2]&,{dix,diy,diyy},2];
-	
-	{emap,fmap,gmap,Emap,Fmap,Gmap}]
+FormsMap[img_Image, \[Sigma]_:1] :=
+  Module[{dix, diy, dixx, diyy, dixy, n},
+    {dix, diy, dixx, diyy, dixy} = ImagePartials[img, \[Sigma]];
+	n = Sqrt[1 + dix^2 + diy^2];
+	(* E, F, G, L, M, N *)
+    {1 + dix^2, dix * diy, 1 + diy^2, dixx/n, dixy/n, diyy/n}
+  ]
 
 
-FormsMap[img_Image,\[Sigma]_:1]:=Image[FormsMap[ImageData[img],\[Sigma]]]
+(* ::Code:: *)
+(*FormsMap[img_Image,\[Sigma]_:1]:=Image[FormsMap[ImageData[img],\[Sigma]]]*)
 
 
-(* ::Text:: *)
-(*Needs fixin :*)
+CurvatureMaps[img_Image,\[Sigma]_:1]:=PrincipalCurvaturesFromIII@@FormsMap[img,\[Sigma]]
 
 
-CurvaturesMap[img_,\[Sigma]_:1]:=Module[{Emap,Fmap,Gmap,emap,fmap,gmap,kk1,kk2},
-	{emap,fmap,gmap,Emap,Fmap,Gmap} = FormsMap[img,\[Sigma]];
-	
-	kk1=(-#3 #4+2 #2 #5-#1 #6+Sqrt[(#3 #4-2 #2 #5+#1 #6)^2-4 (#2^2-#1 #3) (#5^2-#4 #6)])/(2 (#5^2-#4 #6));
-	kk2=-((#3 #4-2 #2 #5+#1 #6+Sqrt[(#3 #4-2 #2 #5+#1 #6)^2-4 (#2^2-#1 #3) (#5^2-#4 #6)])/(2 (#5^2-#4 #6)));
-
-	Chop[MapThread[Evaluate[{kk1,kk2}]&,{emap,fmap,gmap,Emap,Fmap,Gmap},2]]
-]
-
-
-CurvaturesMap[img_Image,\[Sigma]_:1]:=Image[CurvaturesMap[ImageData[img],\[Sigma]]]
+(* ::Code:: *)
+(*CurvatureMaps[img_Image,\[Sigma]_:1]:=Image[CurvatureMapw[ImageData[img],\[Sigma]]]*)
 
 
 (* Utilities *)

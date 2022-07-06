@@ -43,6 +43,27 @@ PrincipalCurvaturesFromSC[s_,c_]:={((-(1/2)+I/2) c Cos[(\[Pi] s)/2]-(1/2-I/2) c 
 
 
 (* ::Subsection:: *)
+(*Principal Curvatures from \[DoubleStruckCapitalI] and \[DoubleStruckCapitalI]\[DoubleStruckCapitalI]*)
+
+
+(* ::Text:: *)
+(*Private*)
+
+
+k1[e_,f_,g_,l_,m_,n_]:=(-g l+2 f m-e n+Sqrt[(g l-2 f m+e n)^2-4 (f^2-e g) (m^2-l n)])/(2 (f^2-e g))
+
+
+k2[e_,f_,g_,l_,m_,n_]:=-((g l-2 f m+e n+Sqrt[(g l-2 f m+e n)^2-4 (f^2-e g) (m^2-l n)])/(2 (f^2-e g)))
+
+
+(* ::Text:: *)
+(*can optimize a bunch of redundant stuff here, but, for now, just leave it.*)
+
+
+PrincipalCurvaturesFromIII[e_,f_,g_,l_,m_,n_]:={k1[e,f,g,l,m,n],k2[e,f,g,l,m,n]}
+
+
+(* ::Subsection:: *)
 (*Traditional Measures*)
 
 
