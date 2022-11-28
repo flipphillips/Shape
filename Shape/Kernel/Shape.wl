@@ -95,10 +95,12 @@ MapToImage::usage="MapToImage[map]"
 Begin["`Private`"];
 
 
-directory=DirectoryName[$InputFileName];
+directory = DirectoryName[$InputFileName];
+directory = If[directory == "", "/Users/flip/GitHub/Shape/Shape/Kernel", directory]
 
 
-files = {"ShapeMetrics.wl", "ShapePatches.wl","Maps.wl"}; 
+files = {"ShapeMetrics.wl", "ShapePatches.wl", "Maps.wl"};
+
 Map[Get[FileNameJoin[{directory, #}]]&, files];
 
 
